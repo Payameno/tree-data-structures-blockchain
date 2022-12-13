@@ -5,9 +5,19 @@ class Tree {
 
   addNode(node) {
 
-    if (!this.node) {
-      this.root = node;
-    }
-    
+      if (!this.root) {
+          this.root = node;
+      }
+
+      if (node.data > this.root.data) {
+          this.root.right = node;
+      }
+      
+      if (node.data < this.root.data) {
+          this.root.left = node;
+      }
+
   }
 }
+
+module.exports = Tree;
