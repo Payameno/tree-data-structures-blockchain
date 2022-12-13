@@ -14,7 +14,13 @@ class MerkleTree {
     for (let i=0; i < leaves.length; i += 2) {
         const left = leaves[i];
         const right = leaves[i + 1];
-        layer.push(this.concat(left, right));
+
+        if (right) {
+          layer.push(this.concat(left, right));
+        } else {
+          layer.push(left);
+        }
+
     }
 
     return this.getRoot(layer);
